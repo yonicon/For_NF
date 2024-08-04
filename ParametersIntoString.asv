@@ -1,0 +1,19 @@
+function [StringOut] = ParametersIntoString(results)
+Parameters=results.simout_Parameters;
+clkpriod=Parameters.Clock_period.Data(1);
+dampcoeff=Parameters.Damping_Coeff.Data(1);
+mass=Parameters.mass_m.Data(1);
+q=Parameters.Quality_Factor.Data(1);
+k=Parameters.Spring_Constant_K.Data(1);
+f0=Parameters.undamped_resonance_frequence.Data(1);
+clkstr=sprintf('$ f_{clk}= %0.5g \mboxMHz  $ Clock frequency\r\n',1/clkpriod/10^6);
+dampstr=sprintf('$\\zeta= %0.5g$ Damping coefficient\r\n',dampcoeff);
+massstr=sprintf('$m= %0.5g \\mu gr$ Effective mass\r\n',mass*10^9);
+qstr=sprintf('$Q= %0.5g$ Quality factor\r\n',q);
+kstr=sprintf('$k= %0.5g N/m$ Spring constant\r\n',k);
+f0str=sprintf('$f_r= %0.4f Hz$ Resonance frequency (undamped)\r\n',f0);
+StringOut=[clkstr,f0str,qstr,dampstr,massstr,kstr];
+newplot;
+text(0.1,0.5,0,[clkstr],Interpreter="latex");
+
+

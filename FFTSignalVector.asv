@@ -1,0 +1,5 @@
+function [] = FFTSignalVector(Signal,Fs)            % Sampling frequency                    
+T = 1/Fs;             % Sampling period       
+L = Length(Signal);             % Length of signal
+t = (0:L-1)*T;        % Time vector
+Y = fft(Si);
